@@ -1,12 +1,14 @@
+import 'package:clone_notes/app/data/models/note_model.dart';
+import 'package:clone_notes/app/routes/app_pages.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  final RxList<NoteModel> notes = <NoteModel>[].obs;
+  final TextEditingController controller = TextEditingController();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void onGetNotes() {
+    // todo: get notes
   }
 
   @override
@@ -19,5 +21,22 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  void onSearchNote() {}
+
+  void onUpdateNote(NoteModel note) {
+    NoteModel? updatedNote =
+        notes.firstWhereOrNull((element) => element.id == note.id);
+    if (updatedNote == null) {
+      notes.add(note);
+    } else {
+      updatedNote = note;
+    }
+    notes.refresh();
+  }
+
+  void refreshNotes() {
+    notes.removeWhere(
+        (element) => element.title.isEmpty && element.content.isEmpty);
+    notes.refresh();
+  }
 }

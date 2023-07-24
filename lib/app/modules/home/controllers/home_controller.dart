@@ -11,14 +11,12 @@ class HomeController extends GetxController {
     // todo: get notes
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void onAddNote() {
+    Get.toNamed(Routes.NOTE);
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  void editNote(NoteModel model) {
+    Get.toNamed(Routes.NOTE, arguments: model);
   }
 
   void onSearchNote() {}

@@ -1,0 +1,23 @@
+
+name: Dart
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v1
+      - name: Install flutter
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '3.10.1'
+      - name: Install project dependency
+        run: flutter pub get
+      - name: Static Analysis
+        run: flutter analyze

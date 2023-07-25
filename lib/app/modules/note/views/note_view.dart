@@ -11,6 +11,12 @@ class NoteView extends GetView<NoteController> {
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
+        leading: BackButton(
+          onPressed: () {
+            Get.back();
+            controller.onBackHome();
+          },
+        ),
         actions: [
           if (!controller.isNewNote)
             IconButton(

@@ -70,4 +70,8 @@ class NoteController extends GetxController {
     Get.back();
     homeController.onDeleteNote(noteModel);
   }
+
+  void onBackHome() {
+    homeController.refreshNotes();
+  }
 }

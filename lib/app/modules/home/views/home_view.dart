@@ -26,35 +26,34 @@ class HomeView extends GetView<HomeController> {
               ),
               Expanded(
                 child: Obx(
-                  () => controller.notes.isNotEmpty
-                      ? ListView(
-                          children: [
-                            ...controller.notes.map(
-                              (element) => Slidable(
-
-                                  key: const ValueKey(0),
-                                  endActionPane: ActionPane(
-                                    motion: const ScrollMotion(),
-                                    extentRatio: 0.25,
-                                    children: [
-                                      SlidableAction(
-                                        onPressed: (context) {
-                                          controller.onDeleteNote(element);
-                                        },
-                                        backgroundColor: Colors.red,
-                                        foregroundColor: Colors.white,
-                                        icon: Icons.delete_outline,
-                                        label: 'Delete',
-                                      ),
-                                    ],
-                                  ),
-                                  child: ListTile(
-                                    onTap: () => controller.editNote(element),
-                                    title: Text(element.title),
-                                    subtitle: Text(element.description),
-                                  )),
-                            )
-                          ],
+                  () => controller.noteList.isNotEmpty
+                      ? ListView.builder(
+                          itemCount: controller.noteList.length,
+                          itemBuilder: (context, index) {
+                            final element = controller.noteList.elementAt(index);
+                            return Slidable(
+                                key: const ValueKey(0),
+                                endActionPane: ActionPane(
+                                  motion: const ScrollMotion(),
+                                  extentRatio: 0.25,
+                                  children: [
+                                    SlidableAction(
+                                      onPressed: (context) {
+                                        controller.onDeleteNote(element);
+                                      },
+                                      backgroundColor: Colors.red,
+                                      foregroundColor: Colors.white,
+                                      icon: Icons.delete_outline,
+                                      label: 'Delete',
+                                    ),
+                                  ],
+                                ),
+                                child: ListTile(
+                                  onTap: () => controller.editNote(element),
+                                  title: Text(element.title),
+                                  subtitle: Text(element.description),
+                                ));
+                          },
                         )
                       : const Center(
                           child: Text(

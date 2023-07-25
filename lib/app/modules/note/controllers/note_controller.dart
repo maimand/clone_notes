@@ -14,6 +14,7 @@ class NoteController extends GetxController {
 
   RxList<NoteModel> notes = <NoteModel>[].obs;
   late NoteModel noteModel;
+  late bool isNewNote;
 
   NoteController(this.homeController);
 
@@ -30,7 +31,7 @@ class NoteController extends GetxController {
 
     titleController.addListener(onTitleChange);
     contentController.addListener(onContentChange);
-    if(titleController.text.isEmpty) {
+    if (titleController.text.isEmpty) {
       titleNode.requestFocus();
     }
     super.onReady();
@@ -40,9 +41,10 @@ class NoteController extends GetxController {
     final arg = Get.arguments;
     if (arg != null && arg is NoteModel) {
       noteModel = arg;
+      isNewNote = false;
     } else {
-      noteModel =
-          NoteModel(id: const Uuid().v4(), title: '', content: '');
+      isNewNote = true;
+      noteModel = NoteModel(id: const Uuid().v4(), title: '', content: '');
     }
   }
 
@@ -62,5 +64,10 @@ class NoteController extends GetxController {
 
   void updateNote() {
     homeController.onUpdateNote(noteModel);
+  }
+
+  void onDeleteNote() {
+    Get.back();
+    homeController.onDeleteNote(noteModel);
   }
 }

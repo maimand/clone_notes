@@ -38,4 +38,12 @@ class HomeController extends GetxController {
           (element) => element.title.isEmpty && element.content.isEmpty)
       ..refresh();
   }
+
+  void onDeleteNote(NoteModel note) {
+    if(notes.any((element) => element.id == note.id)) {
+      notes
+        ..removeWhere((element) => element.id == note.id)
+        ..refresh();
+    }
+  }
 }

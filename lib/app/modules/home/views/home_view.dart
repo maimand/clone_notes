@@ -1,8 +1,8 @@
+import 'package:clone_notes/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:get/get.dart';
-
-import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
@@ -27,15 +27,34 @@ class HomeView extends GetView<HomeController> {
               Expanded(
                 child: Obx(
                   () => controller.notes.isNotEmpty
-                      ? Column(
-                          children: controller.notes
-                              .map((element) => ListTile(
-                                    onTap: () =>
-                                        controller.editNote(element),
+                      ? ListView(
+                          children: [
+                            ...controller.notes.map(
+                              (element) => Slidable(
+
+                                  key: const ValueKey(0),
+                                  endActionPane: ActionPane(
+                                    motion: const ScrollMotion(),
+                                    extentRatio: 0.25,
+                                    children: [
+                                      SlidableAction(
+                                        onPressed: (context) {
+                                          controller.onDeleteNote(element);
+                                        },
+                                        backgroundColor: Colors.red,
+                                        foregroundColor: Colors.white,
+                                        icon: Icons.delete_outline,
+                                        label: 'Delete',
+                                      ),
+                                    ],
+                                  ),
+                                  child: ListTile(
+                                    onTap: () => controller.editNote(element),
                                     title: Text(element.title),
-                                    subtitle: Text(element.content),
-                                  ))
-                              .toList(),
+                                    subtitle: Text(element.description),
+                                  )),
+                            )
+                          ],
                         )
                       : const Center(
                           child: Text(

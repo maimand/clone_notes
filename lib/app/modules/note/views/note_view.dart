@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-
 class NoteView extends GetView<NoteController> {
   const NoteView({Key? key}) : super(key: key);
   @override
@@ -12,6 +11,16 @@ class NoteView extends GetView<NoteController> {
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
+        actions: [
+          if (!controller.isNewNote)
+            IconButton(
+              onPressed: controller.onDeleteNote,
+              icon: const Icon(
+                Icons.delete,
+                color: Colors.red,
+              ),
+            )
+        ],
       ),
       body: Column(
         children: [

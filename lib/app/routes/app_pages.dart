@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:clone_notes/app/modules/home/bindings/home_binding.dart';
 import 'package:clone_notes/app/modules/home/views/home_view.dart';
 import 'package:clone_notes/app/modules/note/bindings/note_binding.dart';

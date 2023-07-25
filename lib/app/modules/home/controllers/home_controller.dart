@@ -17,9 +17,9 @@ class HomeController extends GetxController {
 
   void onGetNotes() {
     notesData = [
-      NoteModel(id: const Uuid().v4(), title: "title 1", content: "content"),
-      NoteModel(id: const Uuid().v4(), title: "title 2", content: "content"),
-      NoteModel(id: const Uuid().v4(), title: "title 3", content: "content"),
+      NoteModel(id: const Uuid().v4(), title: 'title 1', content: 'content'),
+      NoteModel(id: const Uuid().v4(), title: 'title 2', content: 'content'),
+      NoteModel(id: const Uuid().v4(), title: 'title 3', content: 'content'),
     ];
     noteList.assignAll(List.from(notesData));
   }

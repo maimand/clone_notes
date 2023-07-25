@@ -9,9 +9,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac66438e-d42c-461b-ab5d-797f306822cb" name="Changes" comment="- App: Fix code analyze">
+    <list default="true" id="ac66438e-d42c-461b-ab5d-797f306822cb" name="Changes" comment="- App: Update readme">
+      <change afterPath="$PROJECT_DIR$/lib/app/utils/date_time_utils.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/data/models/note_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/data/models/note_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/data/models/note_model.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/data/models/note_model.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/controllers/home_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/controllers/home_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/home_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/home_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/note/controllers/note_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/note/controllers/note_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/note/views/note_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/note/views/note_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,12 +52,16 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="feature/update-readme" />
-                    <option name="lastUsedInstant" value="1690274535" />
+                    <option name="branchName" value="feature/add-time-stamp-for-note" />
+                    <option name="lastUsedInstant" value="1690298303" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1690274534" />
+                    <option name="lastUsedInstant" value="1690294592" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="feature/update-readme" />
+                    <option name="lastUsedInstant" value="1690274535" />
                   </RecentBranch>
                 </list>
               </option>
@@ -75,17 +88,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "/Users/pcomssb/Workspace/clone_notes/lib/app/modules",
-    "settings.editor.selected.configurable": "flutter.settings",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/pcomssb/Workspace/clone_notes/lib/app/modules&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;flutter.settings&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/app/modules" />
@@ -177,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690274174144</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="- App: Update readme">
+      <created>1690274609218</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1690274609218</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -209,6 +229,7 @@
     <MESSAGE value="- Note: Sync title and content in note page to home page" />
     <MESSAGE value="- Home: Search note" />
     <MESSAGE value="- App: Fix code analyze" />
-    <option name="LAST_COMMIT_MESSAGE" value="- App: Fix code analyze" />
+    <MESSAGE value="- App: Update readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="- App: Update readme" />
   </component>
 </project>

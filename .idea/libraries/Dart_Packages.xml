@@ -356,6 +356,7 @@
         <entry key="intl">
           <value>
             <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/intl-0.18.1/lib" />
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/intl-0.18.0/lib" />
             </list>
           </value>
@@ -842,6 +843,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http_multi_server-3.2.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http_parser-4.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/intl-0.18.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/intl-0.18.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/io-1.0.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/js-0.6.7/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/json_annotation-4.8.0/lib" />

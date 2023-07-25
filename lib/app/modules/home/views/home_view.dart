@@ -31,7 +31,7 @@ class HomeView extends GetView<HomeController> {
                           children: controller.notes
                               .map((element) => ListTile(
                                     onTap: () =>
-                                        controller.onUpdateNote(element),
+                                        controller.editNote(element),
                                     title: Text(element.title),
                                     subtitle: Text(element.content),
                                   ))

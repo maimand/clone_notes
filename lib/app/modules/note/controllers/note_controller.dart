@@ -9,6 +9,8 @@ class NoteController extends GetxController {
 
   final TextEditingController titleController = TextEditingController();
   final TextEditingController contentController = TextEditingController();
+  final FocusNode titleNode = FocusNode();
+  final FocusNode contentNode = FocusNode();
 
   RxList<NoteModel> notes = <NoteModel>[].obs;
   late NoteModel noteModel;
@@ -16,9 +18,21 @@ class NoteController extends GetxController {
   NoteController(this.homeController);
 
   @override
+  void onInit() {
+    getArguments();
+    super.onInit();
+  }
+
+  @override
   void onReady() {
+    titleController.text = noteModel.title;
+    contentController.text = noteModel.content;
+
     titleController.addListener(onTitleChange);
     contentController.addListener(onContentChange);
+    if(titleController.text.isEmpty) {
+      titleNode.requestFocus();
+    }
     super.onReady();
   }
 
@@ -28,8 +42,12 @@ class NoteController extends GetxController {
       noteModel = arg;
     } else {
       noteModel =
-          NoteModel(id: const Uuid().v4(), title: 'New Title', content: '');
+          NoteModel(id: const Uuid().v4(), title: '', content: '');
     }
+  }
+
+  void onSubmitTitle() {
+    contentNode.requestFocus();
   }
 
   void onTitleChange() {

@@ -33,8 +33,9 @@ class HomeController extends GetxController {
   }
 
   void refreshNotes() {
-    notes.removeWhere(
-        (element) => element.title.isEmpty && element.content.isEmpty);
-    notes.refresh();
+    notes
+      ..removeWhere(
+          (element) => element.title.isEmpty && element.content.isEmpty)
+      ..refresh();
   }
 }

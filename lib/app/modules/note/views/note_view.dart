@@ -13,11 +13,21 @@ class NoteView extends GetView<NoteController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+      body: Column(
+        children: [
+          TextFormField(
+            controller: controller.titleController,
+            focusNode: controller.titleNode,
+            onChanged: (val) => controller.onTitleChange(),
+            onEditingComplete: controller.onSubmitTitle,
+            onFieldSubmitted: (val) => controller.onSubmitTitle(),
+          ),
+          TextFormField(
+            controller: controller.contentController,
+            focusNode: controller.contentNode,
+            onChanged: (val) => controller.onContentChange(),
+          ),
+        ],
       ),
     );
   }

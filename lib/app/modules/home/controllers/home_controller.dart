@@ -41,15 +41,31 @@ class HomeController extends GetxController {
         element.title.contains(controller.text) ||
         element.content.contains(controller.text));
     noteList.assignAll(searchList);
+    sortNotesData();
+  }
+
+  void sortNotesData() {
+    noteList..sort((a, b) {
+      return (b.timeStamp ?? DateTime.now())
+          .compareTo(a.timeStamp ?? DateTime.now());
+    })
+    ..refresh();
   }
 
   void onUpdateNote(NoteModel note) {
-    NoteModel? updatedNote =
-        notesData.firstWhereOrNull((element) => element.id == note.id);
-    if (updatedNote == null) {
+    final int index = notesData.indexWhere((element) => element.id == note.id);
+    if (index == -1) {
       notesData.add(note);
-    } else {
-      updatedNote = note;
+      onSearchNote();
+      return;
+    }
+    final selectedNote = notesData.elementAt(index);
+    if (selectedNote.title != note.title ||
+        selectedNote.content != note.content) {
+      selectedNote
+        ..title = note.title
+        ..content = note.content
+        ..timeStamp = DateTime.now();
     }
     onSearchNote();
   }
@@ -58,6 +74,7 @@ class HomeController extends GetxController {
     noteList
       ..assignAll(List.from(notesData))
       ..refresh();
+    sortNotesData();
   }
 
   void refreshNotes() {

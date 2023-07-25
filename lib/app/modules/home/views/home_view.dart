@@ -1,4 +1,5 @@
 import 'package:clone_notes/app/modules/home/controllers/home_controller.dart';
+import 'package:clone_notes/app/utils/date_time_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -24,13 +25,15 @@ class HomeView extends GetView<HomeController> {
                 decoration:
                     const InputDecoration(prefixIcon: Icon(Icons.search)),
               ),
+              const SizedBox(height: 16),
               Expanded(
                 child: Obx(
                   () => controller.noteList.isNotEmpty
                       ? ListView.builder(
                           itemCount: controller.noteList.length,
                           itemBuilder: (context, index) {
-                            final element = controller.noteList.elementAt(index);
+                            final element =
+                                controller.noteList.elementAt(index);
                             return Slidable(
                                 key: const ValueKey(0),
                                 endActionPane: ActionPane(
@@ -50,8 +53,16 @@ class HomeView extends GetView<HomeController> {
                                 ),
                                 child: ListTile(
                                   onTap: () => controller.editNote(element),
-                                  title: Text(element.title),
-                                  subtitle: Text(element.description),
+                                  title: Text(
+                                      element.title.isEmpty ? 'No title' : element.title),
+                                  subtitle: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                          (element.timeStamp ?? DateTime.now()).toFEFormat()),
+                                      Text(element.description),
+                                    ],
+                                  ),
                                 ));
                           },
                         )

@@ -2,7 +2,6 @@ import 'package:clone_notes/app/data/models/note_model.dart';
 import 'package:clone_notes/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:uuid/uuid.dart';
 
 class NoteController extends GetxController {
   final HomeController homeController;
@@ -40,11 +39,11 @@ class NoteController extends GetxController {
   void getArguments() {
     final arg = Get.arguments;
     if (arg != null && arg is NoteModel) {
-      noteModel = arg;
+      noteModel = NoteModel.fromJson(arg.toJson());
       isNewNote = false;
     } else {
       isNewNote = true;
-      noteModel = NoteModel(id: const Uuid().v4(), title: '', content: '');
+      noteModel = NoteModel.fromText(title: '', content: '');
     }
   }
 

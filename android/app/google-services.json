@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "144523942799",
+    "firebase_url": "https://clone-notes-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "clone-notes",
+    "storage_bucket": "clone-notes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144523942799:android:ae2877d44127a187cf49fa",
+        "android_client_info": {
+          "package_name": "man.clone_notes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144523942799-r97qfqscjhh8bo63u3rhqser40sna25k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAijh-qkV4uWXnhbf3n5ho00x4kK7002Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144523942799-r97qfqscjhh8bo63u3rhqser40sna25k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "144523942799-12dt4cjtnr6k4epqq2qbdv6rrhqpqr0c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "man.cloneNotes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

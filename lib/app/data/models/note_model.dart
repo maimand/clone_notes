@@ -6,7 +6,7 @@ part 'note_model.g.dart';
 @JsonSerializable()
 class NoteModel {
   @JsonKey(defaultValue: '')
-  final String id;
+  String id;
   @JsonKey(defaultValue: '')
   String title;
   @JsonKey(defaultValue: '')

@@ -13,17 +13,13 @@ class FirebaseService extends GetxService {
   FirebaseService(this.authService);
 
   Query fetchNoteStream() {
-    final Query logs = databaseInstance.ref('uid');
+    final Query logs = databaseInstance.ref(uid);
     return logs;
   }
 
-  Future<void> addNote(NoteModel note) async {
-    final newNoteKey = FirebaseDatabase.instance.ref().child(uid).push().key;
-    note.id = newNoteKey!;
-
+  Future<void> updateNote(NoteModel note) async {
     final Map<String, Map> updates = {};
-    updates['/$uid/$newNoteKey'] = note.toJson();
-
+    updates['/$uid/${note.id}'] = note.toJson();
     return databaseInstance.ref().update(updates);
   }
 

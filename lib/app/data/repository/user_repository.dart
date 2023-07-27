@@ -43,7 +43,7 @@ class RemoteUserRepository implements UserRepository {
     final data = await databaseInstance.once();
     final mapData = data.snapshot.value;
     if (mapData == null || mapData is! Map) {
-      throw Exception('Failed to load user');
+      return [];
     }
     final List<UserModel> users = [];
     mapData.forEach((key, values) {

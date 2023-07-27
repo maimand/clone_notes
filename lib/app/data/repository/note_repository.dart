@@ -35,10 +35,8 @@ class RemoteNoteRepository implements NoteRepository {
     return databaseInstance.update(updates);
   }
 
-
   @override
   Future<void> removeNote(NoteModel note) async {
     await databaseInstance.child('$uid/${note.id}').remove();
   }
-
 }

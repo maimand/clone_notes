@@ -29,6 +29,7 @@ class AuthService extends GetxService {
     }
     final res = await userRepository.login(id, password);
     if (res != null) {
+      currentUser = res;
       await Future.delayed(const Duration(seconds: 1), () {
         unawaited(Get.offAllNamed(Routes.HOME));
       });

@@ -50,11 +50,13 @@ class HomeController extends GetxController {
     }
     final List<NoteModel> notes = [];
     mapData.forEach((key, values) {
-      notes.add(NoteModel(
-          id: key,
-          title: values['title'] ?? '',
-          content: values['content'] ?? '',
-          timeStamp: DateTime.tryParse(values['timeStamp']) ?? DateTime.now()));
+      if(values is Map) {
+        notes.add(NoteModel(
+            id: key,
+            title: values['title'] ?? '',
+            content: values['content'] ?? '',
+            timeStamp: DateTime.tryParse(values['timeStamp']) ?? DateTime.now()));
+      }
     });
     notesData.assignAll(List.from(notes));
     onSearchNote();

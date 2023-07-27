@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>144523942799-12dt4cjtnr6k4epqq2qbdv6rrhqpqr0c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.144523942799-12dt4cjtnr6k4epqq2qbdv6rrhqpqr0c</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCv_4_ildYXGK-NURNrGzbLeN-XGSI9UVo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>144523942799</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>man.cloneNotes</string>
+	<key>PROJECT_ID</key>
+	<string>clone-notes</string>
+	<key>STORAGE_BUCKET</key>
+	<string>clone-notes.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:144523942799:ios:e06c79db4f66f767cf49fa</string>
+	<key>DATABASE_URL</key>
+	<string>https://clone-notes-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>

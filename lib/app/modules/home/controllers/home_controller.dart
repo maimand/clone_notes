@@ -60,7 +60,7 @@ class HomeController extends GetxController {
             title: values['title'] ?? '',
             content: values['content'] ?? '',
             timeStamp:
-                DateTime.tryParse(values['timeStamp']) ?? DateTime.now()));
+                DateTime.tryParse(values['timeStamp'] ?? '') ?? DateTime.now()));
       }
     });
     notesData.assignAll(List.from(notes));

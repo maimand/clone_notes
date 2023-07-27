@@ -15,6 +15,7 @@ dependencies:
   flutter_slidable: ^3.0.0
   fluttertoast: ^8.2.2
   get: 4.6.5
+  get_storage: ^2.1.1
   intl: ^0.18.1
   json_annotation: ^4.8.1
   uuid: ^3.0.7

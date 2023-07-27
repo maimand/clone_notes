@@ -1,3 +1,4 @@
+import 'package:clone_notes/app/data/services/auth_service.dart';
 import 'package:clone_notes/app/modules/home/controllers/home_controller.dart';
 import 'package:clone_notes/app/utils/date_time_utils.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,22 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Your note'),
+          centerTitle: false,
+          elevation: 0,
+          actions: [
+            IconButton(
+              onPressed: () {
+                Get.find<AuthService>().logOut();
+              },
+              icon: const Icon(
+                Icons.logout,
+                color: Colors.red,
+              ),
+            )
+          ],
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: controller.onAddNote,
           child: const Icon(Icons.add),
@@ -53,13 +70,15 @@ class HomeView extends GetView<HomeController> {
                                 ),
                                 child: ListTile(
                                   onTap: () => controller.editNote(element),
-                                  title: Text(
-                                      element.title.isEmpty ? 'No title' : element.title),
+                                  title: Text(element.title.isEmpty
+                                      ? 'No title'
+                                      : element.title),
                                   subtitle: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                          (element.timeStamp ?? DateTime.now()).toFEFormat()),
+                                      Text((element.timeStamp ?? DateTime.now())
+                                          .toFEFormat()),
                                       Text(element.description),
                                     ],
                                   ),

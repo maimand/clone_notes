@@ -17,6 +17,10 @@ class LoginController extends GetxController {
   LoginController(this.authService);
 
   void onLogin() async {
+    // ignore: use_if_null_to_convert_nulls_to_bools
+    if (formKey.currentState?.validate() != true) {
+      return;
+    }
     try {
       CommonUtils.showLoading();
       final res = await authService.login(

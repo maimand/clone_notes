@@ -17,6 +17,9 @@ class RegisterController extends GetxController {
   RegisterController(this.authService);
 
   void onRegister() async {
+    if (formKey.currentState?.validate() != true) {
+      return;
+    }
     try {
       CommonUtils.showLoading();
       final res = await authService.registerUser(

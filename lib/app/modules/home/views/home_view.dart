@@ -1,8 +1,7 @@
 import 'package:clone_notes/app/data/services/auth_service.dart';
 import 'package:clone_notes/app/modules/home/controllers/home_controller.dart';
-import 'package:clone_notes/app/utils/date_time_utils.dart';
+import 'package:clone_notes/app/modules/home/widgets/note_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:get/get.dart';
 
@@ -13,7 +12,7 @@ class HomeView extends GetView<HomeController> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Your note'),
+          title: const Text('Your notes', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),),
           centerTitle: false,
           elevation: 0,
           actions: [
@@ -23,7 +22,7 @@ class HomeView extends GetView<HomeController> {
               },
               icon: const Icon(
                 Icons.logout,
-                color: Colors.red,
+                color: Colors.white,
               ),
             )
           ],
@@ -46,44 +45,24 @@ class HomeView extends GetView<HomeController> {
               Expanded(
                 child: Obx(
                   () => controller.noteList.isNotEmpty
-                      ? ListView.builder(
+                      ? ListView.separated(
                           itemCount: controller.noteList.length,
                           itemBuilder: (context, index) {
                             final element =
                                 controller.noteList.elementAt(index);
-                            return Slidable(
-                                key: const ValueKey(0),
-                                endActionPane: ActionPane(
-                                  motion: const ScrollMotion(),
-                                  extentRatio: 0.25,
-                                  children: [
-                                    SlidableAction(
-                                      onPressed: (context) {
-                                        controller.onDeleteNote(element);
-                                      },
-                                      backgroundColor: Colors.red,
-                                      foregroundColor: Colors.white,
-                                      icon: Icons.delete_outline,
-                                      label: 'Delete',
-                                    ),
-                                  ],
-                                ),
-                                child: ListTile(
-                                  onTap: () => controller.editNote(element),
-                                  title: Text(element.title.isEmpty
-                                      ? 'No title'
-                                      : element.title),
-                                  subtitle: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text((element.timeStamp ?? DateTime.now())
-                                          .toFEFormat()),
-                                      Text(element.description),
-                                    ],
-                                  ),
-                                ));
-                          },
+                            return NoteItem(
+                              note: element,
+                              onEdit: () {controller.editNote(element);},
+                              onDelete: () {
+                                controller.onDeleteNote(element);
+                              },
+                            );
+                          }, separatorBuilder: (BuildContext context, int index) {
+                            return const Padding(
+                              padding:  EdgeInsets.symmetric(vertical: 12),
+                              child: Divider(height: 1, color: Colors.grey,),
+                            );
+                  },
                         )
                       : const Center(
                           child: Text(

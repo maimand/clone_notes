@@ -24,7 +24,7 @@ class NoteView extends GetView<NoteController> {
               onPressed: controller.onDeleteNote,
               icon: const Icon(
                 Icons.delete,
-                color: Colors.red,
+                color: Colors.white,
               ),
             )
         ],
@@ -33,7 +33,12 @@ class NoteView extends GetView<NoteController> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            Text(DateTime.now().toFETimeFormat()),
+            Obx(
+              () => Text(
+                (controller.noteModel.value.timeStamp ?? DateTime.now())
+                    .toFETimeFormat(),
+              ),
+            ),
             const SizedBox(height: 8),
             TextFormField(
               controller: controller.titleController,
@@ -41,11 +46,19 @@ class NoteView extends GetView<NoteController> {
               onChanged: (val) => controller.onTitleChange(),
               onEditingComplete: controller.onSubmitTitle,
               onFieldSubmitted: (val) => controller.onSubmitTitle(),
+              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+              ),
             ),
             TextFormField(
               controller: controller.contentController,
               focusNode: controller.contentNode,
               onChanged: (val) => controller.onContentChange(),
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+              ),
+              maxLines: null,
             ),
           ],
         ),

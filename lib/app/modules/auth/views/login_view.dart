@@ -1,5 +1,6 @@
 import 'package:clone_notes/app/modules/auth/controllers/login_controller.dart';
 import 'package:clone_notes/app/routes/app_pages.dart';
+import 'package:clone_notes/app/widgets/password_text_field.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -36,14 +37,8 @@ class LoginView extends GetView<LoginController> {
                 ),
                 const SizedBox(height: 16),
                 const Text('Password'),
-                TextFormField(
-                  controller: controller.passwordController,
-                  validator: (val) {
-                    if (val!.isEmpty) {
-                      return 'Please enter password';
-                    }
-                    return null;
-                  },
+                PasswordTextField(
+                  textEditingController: controller.passwordController,
                 ),
                 const SizedBox(height: 16),
                 InkWell(
@@ -56,7 +51,10 @@ class LoginView extends GetView<LoginController> {
                     padding: const EdgeInsets.all(16),
                     child: const Text(
                       'Login',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 20),
                     ),
                   ),
                 ),
@@ -67,10 +65,12 @@ class LoginView extends GetView<LoginController> {
                   },
                   child: Container(
                     width: Get.width,
-                    color: Colors.blue,
                     padding: const EdgeInsets.all(16),
-                    child: const Text("Don't have account? Register now.",
-                        style: TextStyle(color: Colors.white)),
+                    child: const Text(
+                      "Don't have account? Register now.",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                    ),
                   ),
                 ),
                 const Spacer(),
@@ -82,3 +82,5 @@ class LoginView extends GetView<LoginController> {
     );
   }
 }
+
+

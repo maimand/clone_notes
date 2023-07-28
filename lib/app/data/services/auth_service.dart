@@ -27,13 +27,20 @@ class AuthService extends GetxService {
       });
       return;
     }
-    final res = await userRepository.login(id, password);
-    if (res != null) {
-      currentUser = res;
-      await Future.delayed(const Duration(seconds: 1), () {
-        unawaited(Get.offAllNamed(Routes.HOME));
-      });
-    } else {
+    try {
+      final res = await userRepository.login(id, password);
+      if (res != null) {
+        currentUser = res;
+        await Future.delayed(const Duration(seconds: 1), () {
+          unawaited(Get.offAllNamed(Routes.HOME));
+        });
+      } else {
+        logOut();
+        await Future.delayed(const Duration(seconds: 1), () {
+          Get.offAllNamed(Routes.LOGIN);
+        });
+      }
+    } on Exception {
       logOut();
       await Future.delayed(const Duration(seconds: 1), () {
         Get.offAllNamed(Routes.LOGIN);

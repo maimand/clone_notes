@@ -11,9 +11,8 @@ class NoteController extends GetxController {
   final FocusNode titleNode = FocusNode();
   final FocusNode contentNode = FocusNode();
 
-  RxList<NoteModel> notes = <NoteModel>[].obs;
-  late NoteModel noteModel;
-  late bool isNewNote;
+  Rx<NoteModel> noteModel = NoteModel.fromText(title: '', content: '').obs;
+  bool isNewNote = true;
 
   NoteController(this.homeController);
 
@@ -25,8 +24,8 @@ class NoteController extends GetxController {
 
   @override
   void onReady() {
-    titleController.text = noteModel.title;
-    contentController.text = noteModel.content;
+    titleController.text = noteModel.value.title;
+    contentController.text = noteModel.value.content;
 
     titleController.addListener(onTitleChange);
     contentController.addListener(onContentChange);
@@ -39,11 +38,8 @@ class NoteController extends GetxController {
   void getArguments() {
     final arg = Get.arguments;
     if (arg != null && arg is NoteModel) {
-      noteModel = NoteModel.fromJson(arg.toJson());
+      noteModel.value = NoteModel.fromJson(arg.toJson());
       isNewNote = false;
-    } else {
-      isNewNote = true;
-      noteModel = NoteModel.fromText(title: '', content: '');
     }
   }
 
@@ -52,22 +48,24 @@ class NoteController extends GetxController {
   }
 
   void onTitleChange() {
-    noteModel.title = titleController.text;
+    noteModel.value.title = titleController.text;
     updateNote();
   }
 
   void onContentChange() {
-    noteModel.content = contentController.text;
+    noteModel.value.content = contentController.text;
     updateNote();
   }
 
   void updateNote() {
-    homeController.onUpdateNote(noteModel);
+    noteModel.value.timeStamp = DateTime.now();
+    noteModel.refresh();
+    homeController.onUpdateNote(noteModel.value);
   }
 
   void onDeleteNote() {
     Get.back();
-    homeController.onDeleteNote(noteModel);
+    homeController.onDeleteNote(noteModel.value);
   }
 
   void onBackHome() {

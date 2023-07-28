@@ -33,7 +33,8 @@ class NoteView extends GetView<NoteController> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            Text(DateTime.now().toFETimeFormat()),
+            Text((controller.noteModel.timeStamp ?? DateTime.now())
+                .toFETimeFormat()),
             const SizedBox(height: 8),
             TextFormField(
               controller: controller.titleController,
@@ -41,11 +42,20 @@ class NoteView extends GetView<NoteController> {
               onChanged: (val) => controller.onTitleChange(),
               onEditingComplete: controller.onSubmitTitle,
               onFieldSubmitted: (val) => controller.onSubmitTitle(),
+              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+              ),
+
             ),
             TextFormField(
               controller: controller.contentController,
               focusNode: controller.contentNode,
               onChanged: (val) => controller.onContentChange(),
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+              ),
+              maxLines: null,
             ),
           ],
         ),
